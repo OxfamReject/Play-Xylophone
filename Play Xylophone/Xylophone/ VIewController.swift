@@ -1,32 +1,34 @@
 //
 //  ViewController.swift
-//  Play Xylophone
+//  Xylophone
 //
-//  Created by Jo Thorpe on 26/06/2018.
-//  Copyright © 2018 Oxfam Reject. All rights reserved.
+//  Created by Angela Yu on 27/01/2016.
+//  Copyright © 2016 London App Brewery. All rights reserved.
 //
 
 import UIKit
 import AudioToolbox
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController{
+
     let soundArray = ["note1","note2","note3","note4","note5","note6","note7"]
     var selectedSoundFileName: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+
+
     @IBAction func notePressed(_ sender: UIButton) {
         
         selectedSoundFileName = soundArray[sender.tag - 1 ]
-        playSound()
         
+        playSound()
+    
     }
     
-    
-    func playSound() {
+    func playSound(){
         
         if let soundURL = Bundle.main.url(forResource: selectedSoundFileName, withExtension: "wav") {
             var mySound: SystemSoundID = 0
@@ -36,12 +38,7 @@ class ViewController: UIViewController {
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+  
 
 }
 
